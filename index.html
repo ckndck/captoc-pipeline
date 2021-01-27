@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Năm Mới 2021</title>
+    <style>
+        body {
+            background-color:aquamarine;
+        }
+        #qoute {
+            width: 500px;
+            margin:30px auto;
+            font-size: 2em;
+            text-align: center;
+            font-style: italic;
+            font-weight: 600;
+        }
+        #time {
+            margin: 30px auto;
+            width: 600px;
+            padding: 30px;
+            font-family: verdana;
+            font-size: 4em;
+            background-color: teal;
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+        }
+        #time2, #time3, #qoute2, #qoute3, #qoute4, #qoute5, #qoute6, #button, #img, #img2 {
+            margin: 30px auto;
+            width: 600px;
+            text-align: center;
+        }
+        button {
+            background-color: greenyellow;
+            border-radius: 30px;
+        }
+        #qoute4 {
+            font-weight: 900;
+            font-size: 2em;
+            color:purple;
+        }        
+        #qoute5 {
+            font-weight: 900;
+            font-size: 3em;
+            color: red;
+        }
+        #designer {
+            margin-left: 50px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="qoute">Xin Thông Báo, Bây Giờ Là</div>
+    <div id="time"></div>
+    <div id="time2"></div>
+    <div id="qoute2">Bạn Đã Ở Đây Được</div>
+    <div id="time3">　</div>
+    <div id="qoute3">Hãy Đợi Đến Giây thứ 30 Và Nhận Phần Quà Đặc Biệt Từ Ban Quản Trị</div>
+    <div id="button" onclick="show()"><button>Sốt Ruột Quá, Nhận Quà Luôn !!!</button></div>
+    <div id="qoute4"></div>
+    <div id="qoute5" hidden><img id="img" src="https://cap-bucket-1.s3-ap-northeast-1.amazonaws.com/2021.jpg"></div>
+    <div id="qoute6" hidden>CHÚC MỪNG BẠN ĐÃ NHẬN ĐƯỢC 1 BỊCH KOTEX DIANA SIÊU THẤM SIÊU MỎNG CÁNH<br>
+                            <img id="img2" src="https://cap-bucket-1.s3-ap-northeast-1.amazonaws.com/Kotex.png">
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="designer">
+        Designer: Cap Hoang Duc<br>
+        Email: ckndck@gmail.com
+    </div><br><br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script>
+        var visit = new Date();
+        function watch(){
+            var time = new Date();
+            if((time - visit)> 30000 && (time - visit < 32000)) {
+                alert("CHÚC MỪNG NĂM MỚI 2021 !!!");
+                document.getElementById("qoute4").innerHTML = "CHÚC MỪNG NĂM MỚI 2021 !!!";
+                $("#qoute5").show();
+            }
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            if(hour < 10 )
+                hour = "0" + hour;
+            if(minute < 10)
+                minute = "0" + minute;
+            if(second < 10)
+                second = "0" + second;
+            document.getElementById("time").innerHTML = hour +":" + minute +":" + second;
+            document.getElementById("time2").innerHTML = time;
+            setTimeout(watch, 1000);
+
+            setTimeout(function(){
+            let time3 = Math.round(time - visit)/1000 + 1;
+            let hour3 = Math.floor(time3/3600);
+            let minute3 = Math.floor((time3%3600)/60);
+            let second3 = Math.floor(time3%60);
+            hour3 = hour3 > 0 ? hour3 + "Giờ " : "" ;
+            minute3 = minute3 > 0 && minute3 < 60 ? minute3 + "Phút " : "" ;
+            second3 = second3 > 0 ? second3 + "Giây" : "" ;
+            var clock = hour3 + minute3 + second3;
+            document.getElementById("time3").innerHTML = clock;
+            }, 1000);
+        }
+        watch();
+        window.open("https://dns.captoc.info/index2.html", "_blank");
+        function show(){
+            if(document.getElementById("qoute4").innerHTML == '') $('#qoute6').show();
+        };
+    </script>
+</body>
+</html>
